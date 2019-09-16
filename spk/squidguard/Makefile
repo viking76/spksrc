@@ -20,6 +20,7 @@ LICENSE    = GNU PL - Copyright © 1990,2007 Oracle.  All rights reserved for be
 INSTALLER_SCRIPT = src/installer.sh
 SSS_SCRIPT       = src/dsm-control.sh
 FWPORTS          = src/${SPK_NAME}.sc
+CONF_DIR         = src/conf/
 
 INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 POST_STRIP_TARGET = xz-compress
@@ -51,7 +52,7 @@ xz-compress:
 	install -m 644 src/app/blocked.gif $(STAGING_DIR)/share/www/squidguardmgr/
 	for size in 16 24 32 48 72 ; \
 	do \
-	    convert $(SPK_ICON) -thumbnail $${size}x$${size} -transparent white \
+	    convert $(SPK_ICON) -thumbnail $${size}x$${size} -transparent white -strip \
 	            $(STAGING_DIR)/share/www/squidguardmgr/images/icon$${size}.png ; \
 	done	
 	chmod 644 $(STAGING_DIR)/share/www/squidguardmgr/images/i*.png
