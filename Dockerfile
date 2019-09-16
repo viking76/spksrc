@@ -62,6 +62,11 @@ RUN wget https://bootstrap.pypa.io/get-pip.py -O - | python3
 RUN wget https://bootstrap.pypa.io/get-pip.py -O - | python
 RUN pip install virtualenv httpie
 
+# addon by viking
+RUN mkdir -p /toolkit
+RUN git clone https://github.com/SynologyOpenSource/pkgscripts-ng.git toolkit
+RUN wget https://sourceforge.net/projects/dsgpl/files/Synology%20NAS%20GPL%20Source/22259branch/apollolake-source/linux-4.4.x.txz/download
+
 # Volume pointing to spksrc sources
 VOLUME /spksrc
 
